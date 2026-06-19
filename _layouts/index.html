@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,19 +64,8 @@
         }
 
         .cheat-sheet-description {
-            margin: 0 0 1rem 0;
+            margin: 0;
             color: var(--pico-muted-color);
-        }
-
-        .tag {
-            display: inline-block;
-            background: var(--pico-primary-background);
-            color: var(--pico-primary);
-            padding: 0.25rem 0.75rem;
-            border-radius: 1rem;
-            font-size: 0.85rem;
-            margin-right: 0.5rem;
-            margin-top: 0.25rem;
         }
 
         .empty-state {
@@ -115,17 +104,15 @@
         // Cheat sheet metadata
         const cheatSheets = [
             {
-                title: "Accessibility Developer Cheat Sheet",
+                title: "Identity Accessibility Developer Cheat Sheet",
                 file: "identity-accessibility-developer-cheat-sheet",
-                description: "Practical accessibility guide for PlatformUI and Mosaic Design System developers with limited semantic HTML experience.",
-                tags: ["Accessibility", "PlatformUI", "Mosaic", "Forms", "ARIA"]
+                description: "Practical accessibility guide for PlatformUI and Mosaic Design System developers with limited semantic HTML experience."
             }
             // Add more cheat sheets here as you create them
             // {
             //     title: "Your Next Cheat Sheet",
             //     file: "your-next-cheat-sheet",  // Note: no .md extension
-            //     description: "Description here",
-            //     tags: ["Tag1", "Tag2"]
+            //     description: "Description here"
             // }
         ];
 
@@ -143,7 +130,6 @@
                     <a href="${baseurl}/${sheet.file}" class="cheat-sheet-link">
                         <h2 class="cheat-sheet-title">${sheet.title}</h2>
                         <p class="cheat-sheet-description">${sheet.description}</p>
-                        ${sheet.tags ? sheet.tags.map(tag => `<span class="tag">${tag}</span>`).join('') : ''}
                     </a>
                 </li>
             `).join('');
