@@ -18,6 +18,50 @@ title: Accessibility Developer Cheat Sheet
 
 ---
 
+## Page Structure
+
+### Page Titles
+
+Every page in PlatformUI needs a descriptive `<title>` element. Screen readers announce page titles when the page loads, and they appear in browser tabs and bookmarks.
+
+```vue
+<script setup>
+useHead({
+  title: 'Edit User - Identity Management'
+})
+</script>
+```
+
+**Format guidelines:**
+- `[Page Name] - [Section] - [App Name]`
+- For multi-step flows: `Step 2 of 3: Review - Create Application`
+- Keep under 60 characters for SEO
+
+**Why:** Helps users understand where they are, especially when switching tabs or using screen readers.
+
+### Heading Hierarchy
+
+Use proper heading levels to create a logical document outline:
+
+```vue
+<h1>User Management</h1>  <!-- Page title - only one per page -->
+
+<h2>Active Users</h2>      <!-- Main sections -->
+<h3>Admin Users</h3>       <!-- Subsections -->
+<h3>Standard Users</h3>
+
+<h2>Pending Invitations</h2>
+```
+
+**Rules:**
+- One `<h1>` per page (usually the page title)
+- Don't skip levels (h1 → h3)
+- Nest headings logically
+
+**Why:** Screen reader users navigate by headings to scan page structure.
+
+---
+
 ## Form Controls
 
 ### Labels Are Required
@@ -44,6 +88,49 @@ title: Accessibility Developer Cheat Sheet
 ```
 
 **Why:** The `aria-describedby` connects the help text to the input for screen readers.
+
+### Password Requirements
+
+For password fields with multiple requirements, link them all:
+
+```vue
+<Label for="new-password">New Password</Label>
+<Password 
+  id="new-password" 
+  v-model="password" 
+  aria-describedby="password-requirements"
+  toggleMask
+/>
+<HelpText id="password-requirements">
+  Must include: 8+ characters, uppercase letter, lowercase letter, and number
+</HelpText>
+```
+
+**Why:** Screen readers read the requirements when the field receives focus.
+
+### Required Fields
+
+Mark required fields both visually and programmatically:
+
+```vue
+<Label for="email">
+  Email <abbr title="required" aria-label="required">*</abbr>
+</Label>
+<InputText 
+  id="email" 
+  v-model="email" 
+  required 
+  aria-required="true"
+/>
+```
+
+**Alternative (better UX):** Add "(required)" in the label text:
+```vue
+<Label for="email">Email (required)</Label>
+<InputText id="email" v-model="email" required aria-required="true" />
+```
+
+**Why:** Visual asterisks alone don't communicate to screen readers. The `aria-required` attribute announces the field as required.
 
 ### Checkboxes and Radio Buttons
 
@@ -105,6 +192,36 @@ title: Accessibility Developer Cheat Sheet
 ```
 
 **Why:** Icon-only buttons need text labels for screen readers. The `aria-label` provides that.
+
+### Touch Target Sizes
+
+All interactive elements (buttons, links, form controls) must be large enough to tap easily.
+
+**Minimum sizes:**
+- **24×24 pixels** (WCAG 2.2 minimum)
+- **44×44 pixels** (better for primary actions)
+
+**✅ Mosaic components already meet this requirement.**
+
+**Watch out for:**
+- Custom icon-only buttons
+- Close buttons in dialog corners
+- Inline links with single characters or short words
+- Custom checkboxes/radio buttons
+
+**Fix small targets:**
+```vue
+<!-- ❌ Too small -->
+<button class="icon-btn">×</button>
+
+<!-- ✅ Mosaic Button (proper size) -->
+<Button icon="pi pi-times" aria-label="Close" text />
+
+<!-- ✅ Add padding to custom elements -->
+<a href="#" style="padding: 12px;">Link</a>
+```
+
+**Why:** Mobile and touch users need bigger tap areas. Low dexterity users benefit too.
 
 ---
 
@@ -257,6 +374,46 @@ toast.add({
 
 ---
 
+## File Uploads
+
+### Provide Clear Instructions
+
+File upload fields need instructions about accepted formats, size limits, and dimensions:
+
+```vue
+<Label for="company-logo">Company Logo</Label>
+<FileUpload 
+  id="company-logo"
+  accept="image/png,image/jpeg"
+  :maxFileSize="2000000"
+  aria-describedby="logo-requirements"
+/>
+<HelpText id="logo-requirements">
+  PNG or JPG format, maximum 2MB, recommended size 400×400 pixels
+</HelpText>
+```
+
+**For drag-and-drop uploads:**
+```vue
+<FileUpload 
+  mode="basic"
+  accept=".pdf,.doc,.docx"
+  :maxFileSize="5000000"
+  chooseLabel="Select files or drag here"
+  aria-describedby="doc-help"
+/>
+<HelpText id="doc-help">
+  PDF or Word documents, up to 5MB each
+</HelpText>
+```
+
+**Why:** 
+- Users need to know what files are acceptable before selecting
+- Prevents upload errors and frustration
+- Screen readers announce the requirements when the field receives focus
+
+---
+
 ## Dynamic Content
 
 ### Live Regions
@@ -382,6 +539,13 @@ toast.add({
    - Is all text readable?
    - Do buttons remain clickable?
 
+4. **Zoom to 400% (reflow test):**
+   - Press Ctrl/Cmd + (zoom to 400% in browser)
+   - No horizontal scrolling should appear
+   - Content should reflow to fit the viewport
+   - All functionality still works
+   - **Note:** Mosaic components handle this automatically, but check custom layouts
+
 ### Browser DevTools
 
 - **Chrome:** Lighthouse accessibility audit
@@ -416,6 +580,10 @@ toast.add({
 8. ❌ Poor heading hierarchy (h1 → h4, skipping h2/h3)
 9. ❌ Auto-playing media without controls
 10. ❌ Opening new windows without warning
+11. ❌ Missing or generic page titles
+12. ❌ Touch targets smaller than 24×24px
+13. ❌ Not marking required fields programmatically
+14. ❌ File uploads without format/size instructions
 
 ---
 
