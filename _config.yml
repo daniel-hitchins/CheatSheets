@@ -1,0 +1,15 @@
+# GitHub Pages Configuration
+title: Developer Cheat Sheets
+description: Quick reference guides for developers
+theme: jekyll-theme-minimal
+
+# Markdown settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - .claude/

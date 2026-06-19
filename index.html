@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Cheat Sheets</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #24292f;
+            background: #f6f8fa;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+
+        header {
+            border-bottom: 2px solid #d0d7de;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1f2328;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: #636c76;
+            font-size: 1rem;
+        }
+
+        .cheat-sheet-list {
+            list-style: none;
+        }
+
+        .cheat-sheet-item {
+            border: 1px solid #d0d7de;
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.2s ease;
+            background: #ffffff;
+        }
+
+        .cheat-sheet-item:hover {
+            border-color: #0969da;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+            transform: translateY(-1px);
+        }
+
+        .cheat-sheet-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .cheat-sheet-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #0969da;
+            margin-bottom: 0.5rem;
+        }
+
+        .cheat-sheet-link:hover .cheat-sheet-title {
+            text-decoration: underline;
+        }
+
+        .cheat-sheet-description {
+            color: #636c76;
+            font-size: 0.95rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #ddf4ff;
+            color: #0969da;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            margin-right: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #d0d7de;
+            text-align: center;
+            color: #636c76;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #0969da;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: #636c76;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+
+            .container {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Developer Cheat Sheets</h1>
+            <p class="subtitle">Quick reference guides for developers</p>
+        </header>
+
+        <main>
+            <ul class="cheat-sheet-list" id="cheatSheetList">
+                <li class="empty-state">Loading cheat sheets...</li>
+            </ul>
+        </main>
+
+        <footer>
+            <p>Built with ❤️ for developers | <a href="https://github.com" target="_blank" rel="noopener">View on GitHub</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // Cheat sheet metadata
+        const cheatSheets = [
+            {
+                title: "Accessibility Developer Cheat Sheet",
+                file: "identity-accessibility-developer-cheat-sheet.md",
+                description: "Practical accessibility guide for PlatformUI and Mosaic Design System developers with limited semantic HTML experience.",
+                tags: ["Accessibility", "PlatformUI", "Mosaic", "Forms", "ARIA"]
+            }
+            // Add more cheat sheets here as you create them
+            // {
+            //     title: "Your Next Cheat Sheet",
+            //     file: "your-next-cheat-sheet.md",
+            //     description: "Description here",
+            //     tags: ["Tag1", "Tag2"]
+            // }
+        ];
+
+        function renderCheatSheets() {
+            const listElement = document.getElementById('cheatSheetList');
+
+            if (cheatSheets.length === 0) {
+                listElement.innerHTML = '<li class="empty-state">No cheat sheets available yet. Check back soon!</li>';
+                return;
+            }
+
+            listElement.innerHTML = cheatSheets.map(sheet => `
+                <li class="cheat-sheet-item">
+                    <a href="${sheet.file}" class="cheat-sheet-link">
+                        <h2 class="cheat-sheet-title">${sheet.title}</h2>
+                        <p class="cheat-sheet-description">${sheet.description}</p>
+                        ${sheet.tags ? sheet.tags.map(tag => `<span class="tag">${tag}</span>`).join('') : ''}
+                    </a>
+                </li>
+            `).join('');
+        }
+
+        // Render on page load
+        renderCheatSheets();
+    </script>
+</body>
+</html>
