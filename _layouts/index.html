@@ -1,159 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Developer Cheat Sheets</title>
+    <meta name="description" content="Quick reference guides for developers">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css" integrity="sha384-NZhm4G1I7BpEGdjDKnzEfy3d78xvy7ECKUwwnKTYi036z42IyF056PbHfpQLIYgL" crossorigin="anonymous">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #24292f;
-            background: #f6f8fa;
             padding: 2rem 1rem;
         }
 
-        .container {
+        main {
             max-width: 900px;
             margin: 0 auto;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
         }
 
         header {
-            border-bottom: 2px solid #d0d7de;
-            padding-bottom: 1rem;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
 
-        h1 {
-            font-size: 2rem;
-            font-weight: 600;
-            color: #1f2328;
+        header h1 {
             margin-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pico-muted-border-color);
+            padding-bottom: 0.75rem;
         }
 
-        .subtitle {
-            color: #636c76;
-            font-size: 1rem;
+        header p {
+            color: var(--pico-muted-color);
+            margin: 0;
         }
 
         .cheat-sheet-list {
             list-style: none;
+            padding: 0;
         }
 
         .cheat-sheet-item {
-            border: 1px solid #d0d7de;
-            border-radius: 6px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            transition: all 0.2s ease;
-            background: #ffffff;
-        }
-
-        .cheat-sheet-item:hover {
-            border-color: #0969da;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
-            transform: translateY(-1px);
+            margin-bottom: 1.5rem;
         }
 
         .cheat-sheet-link {
+            display: block;
+            padding: 1.5rem;
+            border: 1px solid var(--pico-muted-border-color);
+            border-radius: 0.5rem;
             text-decoration: none;
             color: inherit;
-            display: block;
+            transition: all 0.2s ease;
+        }
+
+        .cheat-sheet-link:hover {
+            border-color: var(--pico-primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
         }
 
         .cheat-sheet-title {
+            margin: 0 0 0.5rem 0;
+            color: var(--pico-primary);
             font-size: 1.25rem;
             font-weight: 600;
-            color: #0969da;
-            margin-bottom: 0.5rem;
-        }
-
-        .cheat-sheet-link:hover .cheat-sheet-title {
-            text-decoration: underline;
         }
 
         .cheat-sheet-description {
-            color: #636c76;
-            font-size: 0.95rem;
+            margin: 0 0 1rem 0;
+            color: var(--pico-muted-color);
         }
 
         .tag {
             display: inline-block;
-            background: #ddf4ff;
-            color: #0969da;
+            background: var(--pico-primary-background);
+            color: var(--pico-primary);
             padding: 0.25rem 0.75rem;
-            border-radius: 12px;
+            border-radius: 1rem;
             font-size: 0.85rem;
             margin-right: 0.5rem;
-            margin-top: 0.5rem;
-        }
-
-        footer {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid #d0d7de;
-            text-align: center;
-            color: #636c76;
-            font-size: 0.9rem;
-        }
-
-        footer a {
-            color: #0969da;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
+            margin-top: 0.25rem;
         }
 
         .empty-state {
             text-align: center;
             padding: 3rem 1rem;
-            color: #636c76;
+            color: var(--pico-muted-color);
         }
 
-        @media (max-width: 640px) {
-            body {
-                padding: 1rem 0.5rem;
-            }
-
-            .container {
-                padding: 1.5rem;
-            }
-
-            h1 {
-                font-size: 1.5rem;
-            }
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--pico-muted-border-color);
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--pico-muted-color);
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <main>
         <header>
             <h1>Developer Cheat Sheets</h1>
-            <p class="subtitle">Quick reference guides for developers</p>
+            <p>Quick reference guides for developers</p>
         </header>
 
-        <main>
-            <ul class="cheat-sheet-list" id="cheatSheetList">
-                <li class="empty-state">Loading cheat sheets...</li>
-            </ul>
-        </main>
+        <ul class="cheat-sheet-list" id="cheatSheetList">
+            <li class="empty-state">Loading cheat sheets...</li>
+        </ul>
 
         <footer>
-            <p>Built with ❤️ for developers | <a href="https://github.com" target="_blank" rel="noopener">View on GitHub</a></p>
+            <p>Built with ❤️ for developers | <a href="https://github.com/daniel-hitchins/CheatSheets" target="_blank" rel="noopener">View on GitHub</a></p>
         </footer>
-    </div>
+    </main>
 
     <script>
         // Cheat sheet metadata
