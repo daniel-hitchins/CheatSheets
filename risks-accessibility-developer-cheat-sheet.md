@@ -842,37 +842,52 @@ const breadcrumbItems = [
 ### Manual Testing
 
 1. **Keyboard only:**
-   - Tab through all interactive elements
-   - Navigate charts with arrow keys
-   - Remove filter chips with keyboard
-   - Access all table actions
-   - Navigate heatmap grid with arrows
+   - Can you Tab through all interactive elements?
+   - Navigate charts with arrow keys?
+   - Remove filter chips with keyboard?
+   - Access all table actions?
+   - Navigate heatmap grid with arrows?
+   - Can you activate buttons with Enter/Space?
+   - Can you close dialogs with Escape?
+   - Are dropdowns navigable with arrow keys?
 
-2. **Screen reader:**
+2. **Screen reader (NVDA/JAWS/VoiceOver):**
    - Do chart descriptions make sense?
    - Are data values announced?
    - Can you understand the heatmap structure?
    - Are filter changes announced?
    - Do error messages read clearly?
+   - Are form labels announced?
+   - Can you navigate by headings?
+   - Are images described?
 
 3. **Zoom to 200%:**
    - Charts still visible and usable
    - Heatmap cells don't overlap
    - Filter chips wrap properly
    - Tables remain readable
-   - No horizontal scrolling
+   - Does the layout still work?
+   - Is all text readable?
+   - Do buttons remain clickable?
 
-4. **Color blindness test:**
+4. **Zoom to 400% (reflow test):**
+   - Press Ctrl/Cmd + (zoom to 400% in browser)
+   - No horizontal scrolling should appear
+   - Content should reflow to fit the viewport
+   - All functionality still works
+   - **Note:** Mosaic components handle this automatically, but check custom layouts
+
+5. **Color blindness test:**
    - Use browser DevTools color vision deficiency emulation
    - Check if chart segments are distinguishable
    - Verify heatmap cells are identifiable
    - Ensure status indicators have icons/patterns
 
-### Automated Tools
+### Browser DevTools
 
-- **Lighthouse** - Run accessibility audit
-- **axe DevTools** - Detailed WCAG checks
-- **WAVE** - Visual accessibility feedback
+- **Chrome:** Lighthouse accessibility audit
+- **Firefox:** Accessibility inspector
+- **Edge:** Similar to Chrome
 
 ---
 
@@ -885,6 +900,20 @@ const breadcrumbItems = [
 | Donut Chart | Text alternative, segment labels | Interactive segments, data table |
 | Bar Chart | Axis labels, data labels | Tooltips, keyboard focus |
 | Line Chart | Axis labels, legend | Point data on focus |
+
+---
+
+## Quick Reference: ARIA Attributes
+
+| Attribute | Purpose | Example |
+|-----------|---------|---------|
+| `aria-label` | Provides text label | `<button icon="pi pi-times" aria-label="Close" />` |
+| `aria-labelledby` | Points to label element | `<div role="dialog" aria-labelledby="title">` |
+| `aria-describedby` | Points to description | `<input aria-describedby="help-text">` |
+| `aria-hidden` | Hides from screen readers | `<Icon aria-hidden="true" />` |
+| `aria-live` | Announces dynamic changes | `<div aria-live="polite">Status</div>` |
+| `aria-expanded` | Shows expand/collapse state | Usually handled by Mosaic components |
+| `aria-current` | Shows current item in nav | `<a aria-current="page">Home</a>` |
 
 ---
 
