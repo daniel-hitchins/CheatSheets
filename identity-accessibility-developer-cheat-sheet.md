@@ -1,3 +1,8 @@
+---
+layout: default
+title: Accessibility Developer Cheat Sheet
+---
+
 # Accessibility Developer Cheat Sheet
 ## PlatformUI & Mosaic Design System
 

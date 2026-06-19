@@ -1,15 +1,29 @@
 # GitHub Pages Configuration
 title: Developer Cheat Sheets
 description: Quick reference guides for developers
-theme: jekyll-theme-minimal
+baseurl: "/CheatSheets"  # Change this to match your repo name
+url: ""  # Will be set automatically by GitHub Pages
 
 # Markdown settings
 markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+  auto_ids: true
+  toc_levels: 1..3
+
+# Plugins
+plugins:
+  - jekyll-relative-links
+
+# Relative links configuration
+relative_links:
+  enabled: true
+  collections: false
 
 # Exclude files from processing
 exclude:
   - README.md
   - .claude/
+  - Gemfile
+  - Gemfile.lock
