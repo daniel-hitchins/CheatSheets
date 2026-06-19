@@ -11,6 +11,7 @@ title: Risks Accessibility Developer Cheat Sheet
 <details open>
 <summary><strong>Table of Contents</strong></summary>
 
+
 - [Quick Start: The Golden Rules](#quick-start-the-golden-rules)
 - [Page Structure](#page-structure)
 - [Buttons and Interactive Elements](#buttons-and-interactive-elements)
