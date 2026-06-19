@@ -8,9 +8,8 @@ title: Accessibility Developer Cheat Sheet
 
 > A quick accessibility reference for developers
 
-<details open>
+<details open markdown="1">
 <summary><strong>Table of Contents</strong></summary>
-
 
 - [Quick Start: The Golden Rules](#quick-start-the-golden-rules)
 - [Page Structure](#page-structure)
