@@ -175,6 +175,7 @@
 
         function renderCheatSheets() {
             const listElement = document.getElementById('cheatSheetList');
+            const baseurl = '{{ site.baseurl }}';
 
             if (cheatSheets.length === 0) {
                 listElement.innerHTML = '<li class="empty-state">No cheat sheets available yet. Check back soon!</li>';
@@ -183,7 +184,7 @@
 
             listElement.innerHTML = cheatSheets.map(sheet => `
                 <li class="cheat-sheet-item">
-                    <a href="${sheet.file}" class="cheat-sheet-link">
+                    <a href="${baseurl}/${sheet.file}" class="cheat-sheet-link">
                         <h2 class="cheat-sheet-title">${sheet.title}</h2>
                         <p class="cheat-sheet-description">${sheet.description}</p>
                         ${sheet.tags ? sheet.tags.map(tag => `<span class="tag">${tag}</span>`).join('') : ''}
