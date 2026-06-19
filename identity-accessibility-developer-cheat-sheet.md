@@ -6,7 +6,7 @@ title: Accessibility Developer Cheat Sheet
 # Accessibility Developer Cheat Sheet
 ## PlatformUI & Mosaic Design System
 
-> For developers with limited accessibility and semantic HTML experience
+> A quick accessibility reference for developers
 
 ## Quick Start: The Golden Rules
 

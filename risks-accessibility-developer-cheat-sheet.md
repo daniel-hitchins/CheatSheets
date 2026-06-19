@@ -6,7 +6,7 @@ title: Risks Accessibility Developer Cheat Sheet
 # Risks Accessibility Developer Cheat Sheet
 ## PlatformUI & Mosaic Design System
 
-> For developers building accessible data visualization and risk management features
+> A quick accessibility reference for developers
 
 ## Quick Start: The Golden Rules
 
