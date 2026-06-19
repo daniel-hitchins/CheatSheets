@@ -556,15 +556,52 @@ File upload fields need instructions about accepted formats, size limits, and di
 
 ## Quick Reference: ARIA Attributes
 
-| Attribute | Purpose | Example |
-|-----------|---------|---------|
-| `aria-label` | Provides text label | `<button icon="pi pi-times" aria-label="Close" />` |
-| `aria-labelledby` | Points to label element | `<div role="dialog" aria-labelledby="title">` |
-| `aria-describedby` | Points to description | `<input aria-describedby="help-text">` |
-| `aria-hidden` | Hides from screen readers | `<Icon aria-hidden="true" />` |
-| `aria-live` | Announces dynamic changes | `<div aria-live="polite">Status</div>` |
-| `aria-expanded` | Shows expand/collapse state | Usually handled by Mosaic components |
-| `aria-current` | Shows current item in nav | `<a aria-current="page">Home</a>` |
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Attribute</th>
+      <th scope="col">Purpose</th>
+      <th scope="col">Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>aria-label</code></td>
+      <td>Provides text label</td>
+      <td><code>&lt;button icon="pi pi-times" aria-label="Close" /&gt;</code></td>
+    </tr>
+    <tr>
+      <td><code>aria-labelledby</code></td>
+      <td>Points to label element</td>
+      <td><code>&lt;div role="dialog" aria-labelledby="title"&gt;</code></td>
+    </tr>
+    <tr>
+      <td><code>aria-describedby</code></td>
+      <td>Points to description</td>
+      <td><code>&lt;input aria-describedby="help-text"&gt;</code></td>
+    </tr>
+    <tr>
+      <td><code>aria-hidden</code></td>
+      <td>Hides from screen readers</td>
+      <td><code>&lt;Icon aria-hidden="true" /&gt;</code></td>
+    </tr>
+    <tr>
+      <td><code>aria-live</code></td>
+      <td>Announces dynamic changes</td>
+      <td><code>&lt;div aria-live="polite"&gt;Status&lt;/div&gt;</code></td>
+    </tr>
+    <tr>
+      <td><code>aria-expanded</code></td>
+      <td>Shows expand/collapse state</td>
+      <td>Usually handled by Mosaic components</td>
+    </tr>
+    <tr>
+      <td><code>aria-current</code></td>
+      <td>Shows current item in nav</td>
+      <td><code>&lt;a aria-current="page"&gt;Home&lt;/a&gt;</code></td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 
