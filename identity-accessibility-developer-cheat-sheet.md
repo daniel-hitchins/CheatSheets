@@ -8,6 +8,32 @@ title: Accessibility Developer Cheat Sheet
 
 > A quick accessibility reference for developers
 
+<details open>
+<summary><strong>Table of Contents</strong></summary>
+
+- [Quick Start: The Golden Rules](#quick-start-the-golden-rules)
+- [Page Structure](#page-structure)
+- [Form Controls](#form-controls)
+- [Buttons and Links](#buttons-and-links)
+- [Images and Icons](#images-and-icons)
+- [Navigation and Landmarks](#navigation-and-landmarks)
+- [Tables](#tables)
+- [Dialogs and Overlays](#dialogs-and-overlays)
+- [Loading States](#loading-states)
+- [File Uploads](#file-uploads)
+- [Dynamic Content](#dynamic-content)
+- [Color and Contrast](#color-and-contrast)
+- [Keyboard Navigation](#keyboard-navigation)
+- [Common Mosaic Components Accessibility Notes](#common-mosaic-components-accessibility-notes)
+- [Testing Checklist](#testing-checklist)
+- [Quick Reference: ARIA Attributes](#quick-reference-aria-attributes)
+- [Common Mistakes to Avoid](#common-mistakes-to-avoid)
+- [Getting Help](#getting-help)
+
+</details>
+
+---
+
 ## Quick Start: The Golden Rules
 
 1. **Use Mosaic components by default** - They handle accessibility for you

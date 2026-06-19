@@ -8,6 +8,30 @@ title: Risks Accessibility Developer Cheat Sheet
 
 > A quick accessibility reference for developers
 
+<details open>
+<summary><strong>Table of Contents</strong></summary>
+
+- [Quick Start: The Golden Rules](#quick-start-the-golden-rules)
+- [Page Structure](#page-structure)
+- [Buttons and Interactive Elements](#buttons-and-interactive-elements)
+- [Form Validation](#form-validation)
+- [Data Visualization Accessibility](#data-visualization-accessibility)
+- [Interactive Tables](#interactive-tables)
+- [Filter Chips](#filter-chips)
+- [Focus Management](#focus-management)
+- [Markup Validity](#markup-validity)
+- [Text Resize](#text-resize)
+- [Multiple Navigation Methods](#multiple-navigation-methods)
+- [Testing Checklist](#testing-checklist)
+- [Quick Reference: Data Viz Accessibility](#quick-reference-data-viz-accessibility)
+- [Quick Reference: ARIA Attributes](#quick-reference-aria-attributes)
+- [Common Mistakes to Avoid](#common-mistakes-to-avoid)
+- [Resources](#resources)
+
+</details>
+
+---
+
 ## Quick Start: The Golden Rules
 
 1. **Use Mosaic components by default** - They handle accessibility for you
